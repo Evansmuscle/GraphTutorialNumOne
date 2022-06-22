@@ -1,0 +1,35 @@
+enum Category {
+  HORROR
+  COMEDY
+  ACTION
+  SCIFI
+  FANTASY
+}
+
+input CreateFilmInput {
+  name: String!
+  description: String!
+  category: [Category!]!
+  imdb: Float!
+  actors: [String!]!
+}
+
+mutation CreateFilm($film: CreateFilmInput) {
+  createFilm(film: $film) {
+    name
+    description
+  }
+}
+
+type Query {
+  film(_id: ID!): Film!
+}
+
+type Film {
+  _id: ID!
+  name: String!
+  description: String!
+  category: [Category!]!
+  imdb: Float!
+  actors: [String!]!
+}

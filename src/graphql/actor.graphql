@@ -1,0 +1,16 @@
+enum Gender {
+  FEMALE
+  MALE
+  OTHER
+}
+
+type Query {
+  actor(_id: ID!): Actor!
+}
+
+type Actor {
+  _id: ID!
+  gender: Gender!
+  age: Int!
+  movies: [Film!]!
+}
